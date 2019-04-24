@@ -65,15 +65,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
+        // TODO (13) crando nuestro archivo en donde guardaremos la informacion
         val fileName = "external.txt"
         bt_write_external.setOnClickListener {
 
+            // TODO (14) asignando a fileData la informacion del text view
             val fileData = tv_data.text.toString()
+
+
             myExternalFile = File(getExternalFilesDir(filePath), fileName)
             try {
                 Toast.makeText(applicationContext, "SAVING...!", Toast.LENGTH_LONG).show()
                 val fileOutputStream = FileOutputStream(myExternalFile)
+                // TODO (15) escribimos la informacion y cerramos el fileOutputStream
                 fileOutputStream.write(fileData.toByteArray())
                 fileOutputStream.close()
             }catch (e: IOException){
